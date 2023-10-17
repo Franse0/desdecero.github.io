@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,500;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+:root {
+    --background: #000000;
+    --background2:#0a0a0a;
+    --first: #d4a413;
+    --second: #efb810;
+    --threeth:#f3c332;
+  }
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+@keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes blink {
+    to {
+      background: transparent;
+      opacity: 0;
+    }
+  }
+  
+  /*Para que vaya entrando el texto*/
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+}
+
+.desde-cero-img{
+    width: 100%;
+    height: 100vh;
+}
+.hero-info h1 {
+    animation: fade 1s ease-in, slide-up 1.3s ease-in-out;
+}
+
+.hero-info{
+ text-align: center;
+}
+
+h1{
+    background: var(--background);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;   
+    font-weight: 300;
+}
+
+.hero-info h1 span {
+    position: relative;
+    background: var(--background);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  
+
+  
+  .hero-info h1 span::before,
+  .hero-info h1 span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .hero-info h1 span::before {
+    background-color: white;
+    /*animacion - duración - delay - animation-function - forwards para que se quede en el final*/
+    animation: typewriter 1.2s 1.4s steps(8) forwards;
+  }
+  
+  /*Esto es para la barrita de escritura y que la misma se vaya moviendo junto con las letras que aparecen.*/
+  .hero-info h1 span::after {
+    width: 0.1rem;
+    background: var(--background);
+    animation: typewriter 1.2s 1.4s steps(8) forwards,
+      blink 0.8s steps(8) infinite;
+  } 
+
+
+
+  /* Header, nav */
+
+  header{
+    width: 100%;
+    height: 60px;
+    border: 1px solid gold;
+    background-color:black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    position: fixed;
+    z-index: 200;
+}
+
+/* Boton del menu hamburguesa */
+.bars-container{
+    background-color: black;
+    padding: 0 2rem;
+}
+.fa-bars{
+    cursor: pointer;
+    color: var(--threeth);
+    font-size: 2rem;
+}
+.nav{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.toogle-nav{
+  visibility: visible;
+}
+
+.nav-link{
+    margin: 30% auto;
+    text-transform: uppercase;
+}
+.nav-link a{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+/* Nosotros section */
+
+.tilte-nosotros-container{
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+
+.nosotros{
+  padding-top: 60px;
+}
+.nosotros-items>*{
+  list-style: none;
+}
+
+.nosotros-items ul{
+  display: flex;
+  flex-direction: column;
+  text-align:center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 1rem;
+  line-height: 40px;
+  margin-top: 1%;
+}
+.nosotros-items{
+  padding: 0 0 1rem ;
+}
+.nosotros-item{
+  padding: 0 1%;
+  margin-top: 10%;
+  border-bottom: 1px solid var(--first);
+  border-left: 1px solid var(--first);
+  border-right:1px solid var(--first) ;
+}
+
+.nosotros-item p{
+  font-weight: 200;
+}
+.container-img-nosotros{
+  display: none;
+}
+
+@media (min-width:768px){
+  .nosotros{
+    display: flex;
+    padding-top: 60px;
+  }
+  .container-img-nosotros{
+    display: block;
+    width: 50%;
+  }
+
+  .hero-info{
+    padding: 0rem  1.5rem;
+    width: 50%;
+    margin-top: 0;
+  }
+
+  .nosotros-items{
+    margin: 0 auto;
+    max-width: 80%;
+  }
+ 
+  .img-nosotros{
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+/* Servicion Seccion */
+.servicios{
+  background: linear-gradient(to top,var(--first), var(--threeth));
+  padding: 4rem 0 8rem 0;
+}
+
+.h2{
+  text-align: center;
+  font-weight: 500;
+  font-size: 23px;
+  margin-bottom: 5%;
+  text-transform: uppercase;
+}
+
+.container-servicios{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  padding: .5rem 1rem;
+}
+
+.servicio-card{
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 1px 1px 21px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.servicio-card >h4{
+  line-height: 100%;
+  margin: 0 auto;
+}
+
+.img-servicio{
+  width: 60%;
+  border-radius: 50%;
+}
+
+@media (min-width:768px){
+  .container-servicios{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+   
+  .img-servicio{
+    width: 50%;
+  }
+
+  .h2{
+    font-size: 36px;
+    margin-bottom: 2%;
+  }
+}
+
+
+/* Secion artistas */
+.artistas{
+  background: linear-gradient(to top,var(--threeth), var(--first));
+  padding: 2rem .5rem;
+}
+
+.artistas-presentation{
+  width: 100%;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.artistas-presentation p{
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.3rem;
+}
+
+.card-artista{
+  text-align: center;
+  padding: 1rem;
+  color: white;
+}
+.card-artista-img{
+  width: 100%;
+}
+@media (min-width:668px){
+  .artistas-container{
+    padding: 2rem;
+  }
+  .card-artista{
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width:768px){
+  .artistas-presentation p{
+    font-size: 1.3rem;
+    line-height: 100%;
+  }
+
+  .card-artista{
+    width: 100%;
+  }
+
+  .artistas-container{
+    padding: 1rem ;
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card-artista h3{
+    font-size: 1.2rem;
+  }
+
+  .card-artista p{
+    font-size: 1rem;
+    width: 80%;
+    font-weight: 200;
+    color: #000000;
+    margin: 0 auto;
+  }
+}
+
+
+/* Aside */
+.aside{
+  width: 100%;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: url(./assets/img2.jpg) no-repeat center/cover ;
+}
+
+.aside h2{
+  text-transform: uppercase;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.aside-btn{
+  background: transparent;
+  padding: .5rem;
+  color: var(--first);
+  display: block;
+  margin:10% auto;
+  text-transform: uppercase;
+}
+
+@media (min-width:768px){
+  .aside h2{
+    font-size: 2rem;
+  }
+  .aside-btn{
+    margin: 5% auto;
+  }
+}
+
+
+/* Seccion Trabajos */
+.trabajos{
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.trabajos h2{
+  text-transform: uppercase;
+  margin-bottom: 5%;
+  font-weight: 900;
+  font-size:2rem;
+}
+
+.trabajos-container{
+  width: 100%;
+  line-height: 0%;
+}
+
+.img-trabajos{
+  width: 100%;
+  margin: 0 0;
+}
+@media (min-width:600px){
+  .trabajos-container{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width:768px){
+  .trabajos-container{
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Contacto section */
+
+
+
+.w-80{
+  width: 80%;
+}
+
+.contacto{
+  width: 100%;
+  padding: .5rem;
+}
+
+.contacto-description{
+  text-align: center;
+}
+
+.contacto-description h2{
+  text-transform: uppercase;
+  margin-bottom: 5%;
+}
+
+
+.formulario{
+  padding: .5rem;
+  width: 100%;
+}
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input label{
+  margin-left: 5%;
+}
+
+form  legend{
+border-bottom: 1px solid var(--first);
+width: 50%;
+font-size: 20px;
+margin-bottom: 5%;
+}
+
+.informacion-contacto{
+  padding: 2rem 0;
+}
+
+.item-contacto{
+  width: 90%;
+  margin: 5% 0;
+}
+
+@media (min-width:768px){
+  .contacto{
+    padding: 0 1rem;
+  }
+}
+
+
+/* Footer */
+footer{
+  background-color: var(--background2);
+  color: white;
+  padding: 1rem .5rem;
+  text-align: center;
+}
+.links-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.links-container .fa-brands{
+  font-size: 2rem;
+}
+
+.tex-footer-contianer{
+  margin: 5% auto;
+  line-height: 1;
+}
+
+.tex-footer-contianer a{
+  color: gray;
+  text-decoration: none;
+}
+
+@media (min-width:768px){}
